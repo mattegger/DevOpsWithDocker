@@ -1,0 +1,66 @@
+Script started on 2024-10-03 12:59:48-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="131" LINES="51"]
+
+ [32;01m*[0m [35;01mkeychain [0m[36m2.8.5[0m ~ [32;01mhttp://www.funtoo.org[0m
+ [32;01m*[0m Found existing ssh-agent: [36m2360[0m
+ [31;01m* Warning[0m: can't find id_rsa; skipping
+ [32;01m*[0m Known ssh key: [36m/home/matt/.ssh/vultr[0m
+ [32;01m*[0m Known ssh key: [36m/home/matt/.ssh/github[0m
+
+[H[2J[?2004h[1m12:59 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mp[Kdocker ps -a
+[?2004lCONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+c0e246aee1b6   nginx     "/docker-entrypoint.…"   6 minutes ago   Exited (0) 6 minutes ago             ecstatic_jang
+f9ac889939e1   nginx     "/docker-entrypoint.…"   6 minutes ago   Up 6 minutes               80/tcp    ecstatic_lehmann
+18f47e2fdadb   nginx     "/docker-entrypoint.…"   6 minutes ago   Exited (0) 6 minutes ago             condescending_lederberg
+[?2004h[1m12:59 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker image ls
+[?2004lREPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+nginx        latest    7f553e8bbc89   23 hours ago   192MB
+[?2004h[1m12:59 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker stop ecstatic_lehmann 
+[?2004lecstatic_lehmann
+[?2004h[1m01:00 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker container pur[K[Krune
+[?2004lWARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+c0e246aee1b6bafa730aa233252a9a44caf060917611ddd821b631c0408ca53d
+f9ac889939e13af3bac8f03acffe6556cce92e3e83b61c155dd2a0a6633d0c08
+18f47e2fdadb3e87ae652ac78298c8fae7773784d441467fe2aa8669dafa048f
+
+Total reclaimed space: 3.279kB
+[?2004h[1m01:00 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker rr[Kmi 
+[01;34m.git[0m[K/                .typescript.un~[0m[K      1.1_getting_started[0m[K  LICENSE[0m[K              typescript[0m[K           
+[1m01:00 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker rmi nginx
+[?2004lUntagged: nginx:latest
+Untagged: nginx@sha256:d2eb56950b84efe34f966a2b92efb1a1a2ea53e7e93b94cdf45a27cf3cd47fc0
+Deleted: sha256:7f553e8bbc897571642d836b31eaf6ecbe395d7641c2b24291356ed28f3f2bd0
+Deleted: sha256:3ba9e1b5feaec13b6ac4c4039ff77db13d386040a109f2c378707e70a16ceff0
+Deleted: sha256:84bde598cdfbb8af5b5509ede416a448ab7b8e38a4b7e5f2808c096739cb10e8
+Deleted: sha256:c51526393f89152369e3f34f04409221511ff198968d6e221a7f9f4ed47369c7
+Deleted: sha256:9663f01c380b3953165314a61b7f06e064a1ca39914d7bf6bc047f11d2836df8
+Deleted: sha256:eb228edcd2ea132c0353513e457bae71a4c06332541ac4517b06f70b71b7e977
+Deleted: sha256:b3f70c08ab98515399e812f56f987b033a998abc2fceaa683f432cad5a8bd04a
+Deleted: sha256:8d853c8add5d1e7b0aafc4b68a3d9fb8e7a0da27970c2acf831fe63be4a0cd2c
+[?2004h[1m01:00 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker ps -a
+[?2004lCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[?2004h[1m01:00 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[mdocker  [Kimage ls
+[?2004lREPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+[?2004h[1m01:00 PM
+[31mmatt[37m at [33mdorkstar[37m in [32m~/DevOpsWithDocker
+[37m$ (B[m[?2004l
+exit
+
+Script done on 2024-10-03 13:00:49-04:00 [COMMAND_EXIT_CODE="0"]
