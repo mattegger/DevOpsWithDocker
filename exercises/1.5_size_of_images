@@ -1,0 +1,19 @@
+$ docker image ls
+REPOSITORY                          TAG       IMAGE ID       CREATED       SIZE
+rancher/rancher                     latest    fa75bdc89056   2 weeks ago   2.1GB
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   3 years ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   3 years ago   15.7MB
+
+$ docker exec inspiring_sammet sh -c "tail -f ./text.log"
+2024-10-04 19:31:43 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-10-04 19:31:45 +0000 UTC
+2024-10-04 19:31:47 +0000 UTC
+2024-10-04 19:31:49 +0000 UTC
+2024-10-04 19:31:51 +0000 UTC
+2024-10-04 19:31:53 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-10-04 19:31:55 +0000 UTC
+2024-10-04 19:31:57 +0000 UTC
+2024-10-04 19:31:59 +0000 UTC
+^Ccontext canceled
