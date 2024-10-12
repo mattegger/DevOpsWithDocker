@@ -2,7 +2,7 @@ FROM debian:latest
 
 ENV PORT=8000
 
-ENV REQUEST_ORIGIN=http://localhost
+ENV REQUEST_ORIGIN=http://localhost:5000
 
 EXPOSE 8000
 
