@@ -1,0 +1,5 @@
+services:
+  web-server:
+    image: web-server:latest
+    ports:
+      - 8080:8080
