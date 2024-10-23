@@ -1,0 +1,3 @@
+I set the environment variable REQUEST_ORIGIN to http://localhost in docker-compose.yml in order to get the buttons working correctly.
+
+I did not change the Dockerfiles of the containers

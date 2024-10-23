@@ -1,0 +1,48 @@
+services:
+  proxy:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    privileged: true
+    restart: unless-stopped
+    networks:
+      - proxy-network
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    networks:
+      - database-network
+  redis:
+    image: redis
+    restart: unless-stopped
+    networks:
+      - database-network
+  frontend-server:
+    image: frontend
+    container_name: frontend
+    networks:
+      - proxy-network
+  backend-server:
+    image: backend
+    container_name: backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=database
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=postgres
+      - REQUEST_ORIGIN=http://frontend
+    restart: unless-stopped
+    networks:
+      - proxy-network
+      - database-network
+networks:
+  proxy-network:
+  database-network:
