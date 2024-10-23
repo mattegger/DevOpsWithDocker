@@ -1,0 +1,14 @@
+services:
+  redis:
+    image: redis
+    restart: unless-stopped
+  frontend-server:
+    image: frontend
+    ports:
+      - 5000:5000
+  backend-server:
+    image: backend
+    ports:
+      - 8000:8000
+    environment:
+      - REDIS_HOST=redis
