@@ -1,0 +1,5 @@
+git clone https://github.com/mattegger/simple-web-service.git
+cd simple-web-service
+docker build . -t simple-web-service:$(date +%Y%m%d%H%M%S)
+docker tag simple-web-service:20241025070834 thewegger/simple-web-service:20241025070834
+docker push thewegger/simple-web-service:20241025070834
