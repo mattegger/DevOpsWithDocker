@@ -1,0 +1,9 @@
+$ docker image ls frontend
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+frontend     alpine    57e7222e9746   11 minutes ago   489MB
+frontend     latest    c3208d210e0e   4 hours ago      645MB
+
+$ docker image ls backend
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+backend      alpine    2a339b69e8e8   22 seconds ago   497MB
+backend      latest    c8f7d0b03023   39 minutes ago   808MB

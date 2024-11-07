@@ -1,0 +1,18 @@
+FROM node:16-alpine
+
+ENV PORT=5000
+
+EXPOSE 5000
+
+RUN mkdir frontend
+
+WORKDIR /frontend
+
+COPY . .
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup && \
+  npm install && npm run build && npm install -g serve
+
+USER appuser
+
+CMD ["serve", "-s", "-l", "5000", "build"]

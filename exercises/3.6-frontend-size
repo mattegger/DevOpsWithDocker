@@ -1,0 +1,7 @@
+$ docker image ls -a frontend
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+frontend     latest    5e2bdd2d2efc   22 seconds ago   667MB
+
+$ docker image ls -a frontend
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+frontend     latest    c3208d210e0e   3 hours ago   645MB
