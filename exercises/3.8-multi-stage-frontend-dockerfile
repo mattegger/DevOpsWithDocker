@@ -1,0 +1,17 @@
+FROM node:16-alpine as build-stage
+
+RUN mkdir frontend
+
+WORKDIR /frontend
+
+COPY . .
+
+RUN npm install && npm run build
+
+FROM nginx:alpine
+
+ENV NGINX_PORT=5000
+
+EXPOSE 5000
+
+COPY --from=build-stage /frontend/build/ /usr/share/nginx/html
