@@ -1,0 +1,16 @@
+FROM golang:alpine AS build-stage
+
+RUN mkdir backend
+WORKDIR /backend
+COPY . .
+
+RUN go build && \
+  addgroup -S appgroup && adduser -S appuser -G appgroup
+
+FROM scratch
+EXPOSE 8080
+COPY --from=build-stage /backend/server /server
+COPY --from=build-stage /etc/passwd /etc/passwd
+USER appuser
+
+ENTRYPOINT ["/server"]
