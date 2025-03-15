@@ -1,12 +1,8 @@
-FROM debian:oldstable
-
-ENV PORT=5000
-
-ENV REACT_APP_BACKEND_URL=http://localhost:8000
+FROM ubuntu
 
 EXPOSE 5000
 
-RUN mkdir frontend
+ENV REACT_APP_BACKEND_URL=http://localhost:8080
 
 WORKDIR /frontend
 
@@ -17,9 +13,6 @@ RUN apt install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
 
 RUN apt install -y nodejs
-
-# check install
-#CMD ["node", "-v", "&&", "npm", "-v"]
 
 COPY . .
 
