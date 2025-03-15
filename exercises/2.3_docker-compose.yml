@@ -7,3 +7,5 @@ services:
     image: backend
     ports:
       - 8080:8080
+    environment:
+      - REQUIST_ORIGIN=http://localhost:5000
