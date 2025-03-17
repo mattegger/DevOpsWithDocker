@@ -14,13 +14,9 @@ services:
 
   frontend-server:
     image: frontend
-    ports:
-      - 5000:5000
 
   backend-server:
     image: backend
-    ports:
-      - 8080:8080
     environment:
       - REQUEST_ORIGIN=http://localhost:5000
       - REDIS_HOST=redis
