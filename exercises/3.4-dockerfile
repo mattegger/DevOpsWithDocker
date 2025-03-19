@@ -1,7 +1,7 @@
 FROM docker
 
-WORKDIR /
+WORKDIR /myapp
 
 COPY builder.sh .
 
-ENTRYPOINT ["/builder.sh"]
+ENTRYPOINT ["/myapp/builder.sh"]
