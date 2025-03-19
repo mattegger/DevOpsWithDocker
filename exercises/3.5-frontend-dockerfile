@@ -1,8 +1,8 @@
-FROM debian:oldstable
+FROM ubuntu
 
 EXPOSE 5000
 
-RUN mkdir frontend
+ENV REACT_APP_BACKEND_URL=http://localhost/api
 
 WORKDIR /frontend
 
@@ -13,9 +13,6 @@ RUN apt install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
 
 RUN apt install -y nodejs
-
-# check install
-#CMD ["node", "-v", "&&", "npm", "-v"]
 
 COPY . .
 
