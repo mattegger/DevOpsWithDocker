@@ -6,9 +6,7 @@ COPY . .
 
 RUN go build
 
-RUN addgroup appgroup
 RUN adduser appuser
-RUN adduser appuser appgroup
 
 EXPOSE 8080
 
