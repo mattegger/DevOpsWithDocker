@@ -1,15 +1,14 @@
-FROM golang:alpine
+FROM golang:1.24-alpine
 
-EXPOSE 8080
-
-RUN mkdir backend
-
-WORKDIR /backend
+WORKDIR /myproject
 
 COPY . .
 
-RUN go build && \
-  addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN go build
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN rm -rf cache common controller go.mod go.sum pgconnection router
+
+EXPOSE 8080
 
 USER appuser
 
