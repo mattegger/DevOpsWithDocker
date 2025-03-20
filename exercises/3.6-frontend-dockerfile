@@ -1,8 +1,8 @@
-FROM debian:oldstable
+FROM ubuntu
 
 EXPOSE 5000
 
-RUN mkdir frontend
+ENV REACT_APP_BACKEND_URL=http://localhost/api
 
 WORKDIR /frontend
 
@@ -12,7 +12,7 @@ RUN apt update && apt install -y curl && \
   curl -sL https://deb.nodesource.com/setup_16.x | bash && \
   apt install -y nodejs && npm install && npm run build && \
   npm install -g serve && useradd -m appuser && \
-  apt-get purge -y --auto-remove curl && rm -rf /var/lib/apt/lists/*
+  apt purge -y --auto-remove curl && rm -rf /var/lib/apt/lists/*
 
 USER appuser
 

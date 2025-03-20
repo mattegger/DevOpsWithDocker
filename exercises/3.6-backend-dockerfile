@@ -1,19 +1,13 @@
-FROM debian:latest
+FROM golang:1.24
 
-EXPOSE 8080
-
-RUN mkdir backend
-
-WORKDIR /backend
+WORKDIR /myproject
 
 COPY . .
 
-RUN apt update && apt install -y curl && \
-  curl -L https://go.dev/dl/go1.16.15.linux-amd64.tar.gz --output \
-  go1.16.15.linux-amd64.tar.gz && rm -rf /usr/local/go && \
-  tar -C /usr/local -xzf go1.16.15.linux-amd64.tar.gz && \
-  /usr/local/go/bin/go build && useradd -m appuser && \
-  apt-get purge -y --auto-remove curl && rm -rf /var/libs/apt/lists/*
+RUN go build && adduser appuser && \
+  rm -rf cache common controller go.mod go.sum pgconnection router
+
+EXPOSE 8080
 
 USER appuser
 
