@@ -1,7 +1,5 @@
 FROM node:16-alpine AS build-stage
 
-RUN mkdir frontend
-
 WORKDIR /frontend
 
 COPY . .
@@ -10,7 +8,10 @@ RUN npm install && npm run build
 
 FROM nginx:alpine
 
-ENV NGINX_PORT=5000
+# edited default.conf so nginx will listen on port 5000
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+ENV REACT_APP_BACKEND_URL=http://localhost/api NGINX_PORT=5000
 
 EXPOSE 5000
 
