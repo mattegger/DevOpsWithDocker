@@ -1,17 +1,23 @@
-# image size 19.8MB
-FROM golang:alpine AS build-stage
+FROM golang:1.24-alpine AS build-stage
 
-RUN mkdir backend
-WORKDIR /backend
+WORKDIR /myproject
+
 COPY . .
 
-RUN go build && \
-  addgroup -S appgroup && adduser -S appuser -G appgroup
+# build app statically for use in scratch container
+ENV CGO_ENABLED=0
+
+RUN go build && addgroup -S appgroup && adduser -S appuser -G appgroup && \
+  rm -rf cache common controller go.mod go.sum pgconnection router
 
 FROM scratch
+
 EXPOSE 8080
-COPY --from=build-stage /backend/server /server
+
+COPY --from=build-stage /myproject/server /server
+
 COPY --from=build-stage /etc/passwd /etc/passwd
+
 USER appuser
 
 ENTRYPOINT ["/server"]
